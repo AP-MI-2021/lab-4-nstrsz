@@ -9,6 +9,7 @@ def citire_lista():
 def print_menu():
     print("1. Citire lista")
     print("2. Afisare lista dupa eliminarea elementelor prime")
+    print("3. Este media aritmetica mai mare decat un numar dat?")
 
     print("a. Afisare lista")
     print("x. Iesire")
@@ -46,6 +47,35 @@ def eliminare_elemente_prime(l):
             i = i + 1
     return l
 
+def media_aritmetica_lista(l):
+    '''
+    algoritmul calculeaza media aritmetica a numerelor intregi dintr-o lista
+    :param l: lista de numere intregi
+    :return: media aritmetica a numerelor intregi din lista
+    '''
+    m=0
+    c=0
+    for x in l:
+        m = m + x
+        c = c + 1
+    return m//c
+
+
+def este_media_aritmetica_mai_mare_decat_n(l,n):
+    '''
+    Algoritmul stabileste daca media aritmetica a numerelor dintr-o lista este mai mare decat un numar n dat
+    :param l: lista de numere intregi
+    :param n: numarul fata de care verificam ca media aritmetica sa fie mai mare
+    '''
+    if media_aritmetica_lista(l) > n:
+        print("Da")
+    else:
+        print("Nu")
+
+
+
+
+
 def meniu():
     l = []
     while True:
@@ -55,6 +85,9 @@ def meniu():
             l = citire_lista()
         elif optiune == "2":
             print(eliminare_elemente_prime(l))
+        elif optiune =="3":
+            n=int(input("Dati n: "))
+            este_media_aritmetica_mai_mare_decat_n(l,n)
         elif optiune == "a":
             afisare_lista(l)
         elif optiune == "x":
