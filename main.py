@@ -83,6 +83,11 @@ def nr_div_proprii(n):
 
 
 def afisare_lista_cu_nr_de_div_proprii(l):
+   '''
+   Algoritmul stabileste daca un numar este sau nu prim
+   :param n: numarul pe care il verificam
+   :return: True daca numarul dat este prim, False in caz contrar
+   '''
    i=0
    while i<len(l):
        l.insert(i+1,nr_div_proprii(l[i]))
@@ -110,4 +115,3 @@ def meniu():
             break
 
 meniu()
-
