@@ -10,7 +10,7 @@ def print_menu():
     print("1. Citire lista")
     print("2. Afisare lista dupa eliminarea elementelor prime")
     print("3. Este media aritmetica mai mare decat un numar dat?")
-
+    print("4. Afișarea listei obținută prin adăugarea după fiecare element numărul de divizori proprii ai elementului.")
     print("a. Afisare lista")
     print("x. Iesire")
 
@@ -73,7 +73,21 @@ def este_media_aritmetica_mai_mare_decat_n(l,n):
         print("Nu")
 
 
+def nr_div_proprii(n):
+    ''' Stabileste numarul de divizori proprii ai unui numar, returnand acel numar'''
+    c=0
+    for i in range (2,n//2+1):
+        if n%i==0:
+            c=c+1
+    return c
 
+
+def afisare_lista_cu_nr_de_div_proprii(l):
+   i=0
+   while i<len(l):
+       l.insert(i+1,nr_div_proprii(l[i]))
+       i=i+2
+   return l
 
 
 def meniu():
@@ -88,6 +102,8 @@ def meniu():
         elif optiune =="3":
             n=int(input("Dati n: "))
             este_media_aritmetica_mai_mare_decat_n(l,n)
+        elif optiune == "4":
+            print(afisare_lista_cu_nr_de_div_proprii(l))
         elif optiune == "a":
             afisare_lista(l)
         elif optiune == "x":
